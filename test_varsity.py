@@ -5,7 +5,7 @@ from decimal import Decimal
 
 import pytest
 
-from varsity import Loader
+from varsity import Loader, nice_bool
 
 
 def test_simple_var():
@@ -55,3 +55,24 @@ def test_nested_attributes():
     l.add('FOO', 'foo', typ=json.loads)
     settings = l.load(environ={'FOO': '{"bar": 2}'})
     assert settings.foo.bar == 2
+
+
+def test_not_required():
+    l = Loader()
+    l.add('FOO', required=False)
+    settings = l.load(environ={})
+    assert settings.FOO is None
+
+
+def test_nice_bool():
+    l = Loader()
+    l.add('FOO', typ=nice_bool)
+    settings = l.load(environ={'FOO': 'yes'})
+    assert settings.FOO is True
+
+
+def test_nice_bool_default():
+    l = Loader()
+    l.add('FOO', default=False)
+    settings = l.load(environ={'FOO': 'yes'})
+    assert settings.FOO is True
