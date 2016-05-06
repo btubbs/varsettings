@@ -16,7 +16,7 @@ setup(
     url='http://github.com/btubbs/varsity',
     description=('A library for defining, parsing, and validating settings '
                  'passed as environment variables'),
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     py_modules=['varsity'],
     include_package_data=True,
     zip_safe=False,

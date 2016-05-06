@@ -2,7 +2,7 @@ import os
 
 from attrdict import AttrDict
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 
 class Loader():

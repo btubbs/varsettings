@@ -58,3 +58,6 @@ docs/_build/
 target/
 
 tmp/
+
+# We keep the markdown readme in version control, not the RST.
+README.rst
