@@ -5,4 +5,4 @@ README.rst: README.md
 
 pypi: README.rst
 	python setup.py register -r pypi sdist upload -r pypi
-
+	rm README.rst

@@ -2,16 +2,18 @@ import os
 
 from attrdict import AttrDict
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 
 class Loader():
     def __init__(self):
         self._settings = []
 
-    def add(self, name=None, var=None, default=None, typ=None):
-        assert name, 'You must provide a setting name'
+    def add(self, var=None, name=None, default=None, typ=None):
         assert var, 'You must provide an environment variable name'
+        if name is None:
+            name = var
+
         if typ is None and default is not None:
             typ = type(default)
         self._settings.append((name, var, default, typ))
