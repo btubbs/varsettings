@@ -1,3 +1,5 @@
+# Run these with py.test
+
 import json
 from decimal import Decimal
 
